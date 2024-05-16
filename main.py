@@ -16,6 +16,9 @@ while running:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 pause = not pause
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_c:
+                c.clear()
         if event.type == pygame.MOUSEBUTTONDOWN:
             c.click_to_live()
     c.display(screen)
@@ -24,6 +27,3 @@ while running:
     if not pause:
         c.live_or_dead()
         screen.fill((0, 0, 0))
-
-
-

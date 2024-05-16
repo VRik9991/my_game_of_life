@@ -85,5 +85,17 @@ class CellManager:
         while posX % 10 != 0:
             posX -= 1
         self.cells[int(posY / 10)][int(posX / 10)].alive = not self.cells[int(posY / 10)][int(posX / 10)].alive
-
+    def clear(self):
+        posX = 0
+        posY = 0
+        self.cells = []
+        for i in range(60):
+            self.cells.append([])
+            for j in range(80):
+                self.cells[-1].append(Cell(posX, posY, False))
+                # live = not live
+                posX += 10
+            # live = not live
+            posX = 0
+            posY += 10
 
