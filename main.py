@@ -1,11 +1,16 @@
 import pygame
 from CellManager import CellManager
+from Figure import Figure
+import utils
+
 
 screen = pygame.display.set_mode((800, 600))
 clock = pygame.time.Clock()
 pygame.init()
 
 c = CellManager()
+f = Figure('figures/glider.json')
+
 
 running = True
 pause = True
@@ -20,7 +25,12 @@ while running:
             if event.key == pygame.K_c:
                 c.clear()
         if event.type == pygame.MOUSEBUTTONDOWN:
-            c.click_to_live()
+            if event.button == pygame.BUTTON_LEFT:
+                c.click_to_live()
+            if event.button == pygame.BUTTON_RIGHT:
+                posX, posY = pygame.mouse.get_pos()
+                posX, posY = utils.get_cell_coordinates(posX, posY)
+                f.add_figure(posX,posY, c)
     c.display(screen)
     pygame.display.flip()
     clock.tick(15)

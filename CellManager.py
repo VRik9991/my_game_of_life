@@ -1,5 +1,6 @@
 import pygame
 from Cell import Cell
+import utils
 
 
 class CellManager:
@@ -80,10 +81,8 @@ class CellManager:
 
     def click_to_live(self):
         posX, posY = pygame.mouse.get_pos()
-        while posY % 10 != 0:
-            posY -= 1
-        while posX % 10 != 0:
-            posX -= 1
+        posX, posY = utils.get_cell_coordinates(posX, posY)
+
         self.cells[int(posY / 10)][int(posX / 10)].alive = not self.cells[int(posY / 10)][int(posX / 10)].alive
     def clear(self):
         posX = 0
