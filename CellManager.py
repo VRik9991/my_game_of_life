@@ -83,7 +83,7 @@ class CellManager:
         posX, posY = pygame.mouse.get_pos()
         posX, posY = utils.get_cell_coordinates(posX, posY)
 
-        self.cells[int(posY / 10)][int(posX / 10)].alive = not self.cells[int(posY / 10)][int(posX / 10)].alive
+        self.cells[int(posY)][int(posX)].alive = not self.cells[int(posY)][int(posX)].alive
     def clear(self):
         posX = 0
         posY = 0
